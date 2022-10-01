@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} lobby {% endblock %}
+
+{% block content %}
+
+    <h1>Welcome {{username}}, you have {{coins}} coins</h1>
+    <h1>would you like to:</h1>
+<p>
+    <a href="{% url 'startGame' %}">
+        <button>Create a game</button>
+    </a>
+    <br>
+    <br>
+
+    <a href="{% url 'stats' %}">
+        <button>View player stats</button>
+    </a>
+    <br>
+    <h1>Join a game:</h1>
+    <ul>
+        {% for game in games.all %}
+            {% if game.status == "open" %}
+            <li>
+                <a href="{% url 'joinGame' game.id %}">
+                    {{ game.ownerName }} V ? ( {{game.betAmount}} )
+                </a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</p>
+
+<h1>The richest player is {{mostCoinsName}}, with {{mostCoins}} coins</h1>
+
+{% endblock %}

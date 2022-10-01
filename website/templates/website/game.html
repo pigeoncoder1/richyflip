@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} game {% endblock %}
+
+{% block content %}
+
+    <h1>{{name}} versus ?</h1>
+    <h1> choose option: </h1>
+    <form action="checkHaveCoins" method="post">
+        {% csrf_token %}
+        <input type="radio" name="choice" value="Bux" id="Bux" checked>
+        <label for="Bux"><img height="400px" width="400px" src="{% static 'Images/bux.png'%}"></label>
+        <input type="radio" name="choice" value="Tix" id="Tix">
+        <label for="Tix"><img height="400px" width="400px" src="{% static 'Images/tix.png'%}"></label>
+        <br>
+        <br>
+        <h1>Coins on this bet:</h1>
+            <input type="number" name="betAmount" value="5" min="5" max="1000">
+        <br>
+        <input type="submit" value="Create Game">
+
+    </form>
+
+
+
+{% endblock %}

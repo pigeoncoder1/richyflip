@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} viewresult {% endblock %}
+
+{% block content %}
+    <h1>{{ownerName}}:{{ownerChoice}} | {{joinerName}}:{{joinerChoice}}</h1>
+
+    <h1>it landed on......... {{side}}</h1>
+
+    <h1>{{winner}} Won {{betAmount}} coins!</h1>
+
+    <a href="{% url 'stats' %}">
+        <button>Go back to stats</button>
+    </a>
+
+{% endblock %}

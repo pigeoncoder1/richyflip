@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Login Page {% endblock %}
+
+{% block content %}
+    <h1>{{owner}}:{{ownerChoice}} | {{you}}:{{yourChoice}}</h1>
+    <h2>Stake: {{betAmount}}</h2>
+    <h1>Are you sure you want to join?</h1>
+    <a href="{% url 'lobby' %}">
+        <button>Go back to lobby</button>
+    </a>
+
+    <a href="{% url 'calculateWin' gameid %}">
+        <button>Join!</button>
+    </a>
+
+{% endblock %}

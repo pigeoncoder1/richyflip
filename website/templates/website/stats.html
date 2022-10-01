@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} stats {% endblock %}
+
+{% block content %}
+
+<h1>stats for {{username}}:</h1>
+<h1>coins: {{coins}}</h1>
+<h1>wins: {{wins}}</h1>
+<h1>losses: {{losses}}</h1>
+
+<h1>View past games:</h1>
+
+{% for pastGame in pastGames %}
+    <li>
+    <a href="{% url 'seeOutcome' pastGame.id %}">
+        View: {{pastGame.ownerName}} V {{pastGame.joinerName}}
+    </a>
+    </li>
+{% endfor %}
+
+<br>
+
+<a href="{% url 'lobby' %}">
+    <button>Back</button>
+</a>
+
+
+{% endblock %}
