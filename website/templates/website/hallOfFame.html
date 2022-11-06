@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} stats {% endblock %}
+
+{% block content %}
+
+Scripter: richy (choopies)
+<br>
+Using: Django --not the bounty hunter, and definitely not the chameleon.
+<br>
+
+The richest player is: {{richestPlayer}}, with {{richestPlayerCoins}} coins
+<br>
+<br>
+<a href="{% url 'lobby' %}">
+        <button>Go back to lobby</button>
+    </a>
+
+
+
+{% endblock %}

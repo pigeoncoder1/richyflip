@@ -4,19 +4,21 @@
 
 {% block content %}
 
-    <h1>Welcome {{username}}, you have {{coins}} coins</h1>
-    <h1>would you like to:</h1>
-<p>
-    <a href="{% url 'startGame' %}">
-        <button>Create a game</button>
-    </a>
-    <br>
-    <br>
+    <h1><span style=" background-color: #FFFF00">Welcome {{username}}, you have {{coins}} coins</span></h1>
 
-    <a href="{% url 'stats' %}">
-        <button>View player stats</button>
-    </a>
-    <br>
+<h1 align="center">
+    <a href="{% url 'shop' %}"><button>Buy tokens</button></a>
+    <a href="{% url 'startGame' %}"><button>Create a game</button></a>
+    <a href="{% url 'stats' %}"><button>View player stats</button></a>
+    <a href="{% url 'hallOfFame' %}"><button>View Hall OF Fame</button></a>
+    <form action="lookUpPlayer" method="post">
+    {% csrf_token %}
+    <input type="text" name="username">
+    <input type="submit" value="Look Up Player">
+    </form>
+</h1>
+<p>
+    <hr>
     <h1>Join a game:</h1>
     <ul>
         {% for game in games.all %}
@@ -30,7 +32,5 @@
         {% endfor %}
     </ul>
 </p>
-
-<h1>The richest player is {{mostCoinsName}}, with {{mostCoins}} coins</h1>
-
+<hr>
 {% endblock %}

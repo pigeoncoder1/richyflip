@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} viewresult {% endblock %}
+
+{% block content %}
+<h1>Buy Tokens Here!</h1>
+
+<form action="addTokens" method="post">
+        {% csrf_token %}
+        Positives: <input type="number" name="positives" value="1" min="0" max="100">
+        <br>
+        Negatives: <input type="number" name="negatives" value="1" min="0" max="100">
+        <br>
+        <button type="submit">Buy!</button>
+</form>
+{% endblock %}

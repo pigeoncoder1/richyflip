@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} stats {% endblock %}
+
+{% block content %}
+
+<h1>Looks like something went wrong!</h1>
+
+<h1>error message: {{message}}</h1>
+
+<a href="{% url return %}">Go back to {{goTo}}</a>
+
+
+
+{% endblock %}

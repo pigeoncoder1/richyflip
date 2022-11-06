@@ -7,6 +7,9 @@ class Player(models.Model):
     coins = models.IntegerField(default=0)
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0)
+    password = models.CharField(max_length=20)
+    positives = models.IntegerField(default=0)
+    negatives = models.IntegerField(default=0)
 
 
 class Game(models.Model):

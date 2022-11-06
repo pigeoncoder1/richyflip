@@ -3,12 +3,18 @@
 {% block title %} Login Page {% endblock %}
 
 {% block content %}
-    <h1>Type Username:</h1>
+    <h1>Login:</h1>
     <form action="doLogin" method="post">
         {% csrf_token %}
-        <input name="username">
+        username: <input name="username">
+        <br>
+        password: <input type="password" name="password">
         <br>
         <button type="submit">Login</button>
     </form>
+
+    {{CreateUser}} <a href="{% url 'goToCreateUser' %}">
+        <button>Create a user</button>
+    </a>
 
 {% endblock %}
