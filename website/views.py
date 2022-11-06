@@ -4,7 +4,7 @@ from django.http import HttpResponse
 import random
 from .models import Player, Game
 
-
+print("hi")
 def login(request):
     return render(request, "website/login.html")
 
